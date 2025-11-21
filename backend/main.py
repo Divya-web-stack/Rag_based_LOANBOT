@@ -30,7 +30,6 @@ def home():
 # ✅ Chat endpoint (Frontend → Backend)
 @app.post("/chat")
 async def chat(request: Request):
-    """Handles chat messages from frontend"""
     try:
         data = await request.json()
         user_message = data.get("message", "").strip()
@@ -39,32 +38,23 @@ async def chat(request: Request):
             return {"reply": "Please enter a valid message."}
 
         print(f"🟦 User: {user_message}")
-        reply = run_master_agent(user_message)
-        print(f"🟩 Final Bot Reply: {reply}")
 
-        # ✅ Always return clean JSON — no print output included
-        return {"reply": str(reply).strip()}
+        response = run_master_agent(user_message)
+
+        # If LLM returns dict / None / unexpected type → force string
+        if not isinstance(response, str):
+            try:
+                response = str(response)
+            except:
+                response = "⚠️ Unable to generate response."
+
+        print(f"🟩 Bot: {response}")
+
+        return {"reply": response}
 
     except Exception as e:
         print(f"❌ Chat Error: {e}")
-        return {"reply": f"Server Error: {str(e)}"}
-
-# ✅ Upload policy PDF/text data for RAG
-@app.post("/upload_policy")
-async def upload_policy(file: UploadFile = File(...)):
-    """Uploads a new policy document and reindexes it in ChromaDB"""
-    try:
-        path = f"backend/data/policies/{file.filename}"
-        with open(path, "wb") as f:
-            shutil.copyfileobj(file.file, f)
-
-        # Optional: Automatically rebuild RAG index
-        from backend.rag_index_builder import create_rag_index
-        create_rag_index()
-
-        return {"message": f"{file.filename} uploaded and indexed successfully ✅"}
-    except Exception as e:
-        return {"message": f"Error while uploading: {e}"}
+        return {"reply": "Server Error: " + str(e)}
 
 # ✅ Speech-to-text (STT)
 @app.post("/stt")
