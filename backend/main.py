@@ -39,22 +39,16 @@ async def chat(request: Request):
 
         print(f"🟦 User: {user_message}")
 
-        response = run_master_agent(user_message)
+        reply = str(run_master_agent(user_message))
 
-        # If LLM returns dict / None / unexpected type → force string
-        if not isinstance(response, str):
-            try:
-                response = str(response)
-            except:
-                response = "⚠️ Unable to generate response."
+        print(f"🟩 Bot: {reply}")
 
-        print(f"🟩 Bot: {response}")
-
-        return {"reply": response}
+        return {"reply": reply}
 
     except Exception as e:
         print(f"❌ Chat Error: {e}")
         return {"reply": "Server Error: " + str(e)}
+
 
 # ✅ Speech-to-text (STT)
 @app.post("/stt")

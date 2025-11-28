@@ -63,12 +63,6 @@ agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 # 5️⃣ Main Orchestrator Logic (Master Agent)
 # -----------------------------------------------------------
 def run_master_agent(user_input: str) -> str:
-    """
-    Run the main master agent that integrates:
-      - RAG (retrieve relevant policy context from ChromaDB)
-      - LLM reasoning (via Mistral)
-      - Delegation to worker agents
-    """
     try:
         # Step 1: Retrieve contextual data from knowledge base
         context = query_docs(user_input)
@@ -80,9 +74,18 @@ def run_master_agent(user_input: str) -> str:
             f"Use the worker agents if needed to complete this task."
         )
 
-        # Step 3: Execute through agent reasoning pipeline
+        # Step 3: Call the agent
         result = agent_executor.invoke({"input": full_query})
-        return result.get("output", "Sorry, I couldn't process that request.")
+
+        # 🔥 VERY IMPORTANT FIX — handle all possible return keys
+        reply = (
+            result.get("output")
+            or result.get("final_answer")
+            or result.get("response")
+            or str(result)
+        )
+
+        return reply
 
     except Exception as e:
         print(f"[MasterAgent Error] {e}")
