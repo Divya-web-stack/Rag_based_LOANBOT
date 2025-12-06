@@ -1,8 +1,3 @@
-Below is an **updated, enriched README** that now includes **relevant content from the PPT (CodeWires.pptx)** while keeping the README focused on *your multi-agent project*, *not EY Techathon–specific*.
-
-All PPT material has been blended naturally into appropriate sections (team intro, problem framing, solution framing, planned design, etc.) without making the README presentation-like.
-
----
 
 # 🚀 Multi-Agent AI Orchestration Platform
 
