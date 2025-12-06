@@ -1,0 +1,7 @@
+Loan FAQ
+---------
+Q: What happens if EMI is missed?
+A: Late payment penalty of 2% of EMI amount applies.
+
+Q: Can I close the loan early?
+A: Yes, foreclosure is allowed after 6 months.

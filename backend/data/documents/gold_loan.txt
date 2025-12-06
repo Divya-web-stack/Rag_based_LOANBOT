@@ -1,0 +1,6 @@
+Gold Loan Policy
+----------------
+- Loan amount up to 75% of gold value.
+- Tenure: 12 to 24 months.
+- Interest rate: 9% to 11.5%.
+- Requires original gold jewelry and ID proof.

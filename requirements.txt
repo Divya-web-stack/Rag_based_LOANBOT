@@ -1,0 +1,44 @@
+# --- Core Framework ---
+fastapi
+uvicorn
+
+# --- LangChain + LLM + Vector Store ---
+langchain
+langchain-community
+langchain-core
+chromadb
+faiss-cpu
+sentence-transformers
+ollama
+
+# --- AI / NLP / Rules / ML ---
+transformers
+scikit-learn
+pyod
+pandas
+numpy
+
+# --- Voice (Speech to Text / Text to Speech) ---
+vosk
+coqui-tts
+sounddevice
+pydub
+
+# --- Data + Documents ---
+python-docx
+reportlab
+
+# --- File Handling + CORS + Uploads ---
+aiofiles
+python-multipart
+redis
+
+# --- Utilities ---
+tqdm
+black
+jupyter
+
+
+
+
+//pip install "langchain==0.1.16"
