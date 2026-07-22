@@ -117,17 +117,22 @@ LoanBot/
 User Input
     │
     ▼
-┌─────────────┐     ┌──────────────────┐
-│   Router    │────▶│   ChromaDB RAG   │
-│   (Node)    │     │  (retrieve docs) │
-└─────┬───────┘     └──────────────────┘
-      │
-      │  Conditional routing based on query intent
-      │
-      ├──▶ Sales Agent       — Loan products & offers
-      ├──▶ Verification Agent — KYC / identity checks
-      ├──▶ Underwriting Agent  — Eligibility evaluation
-      └──▶ Sanction Agent    — Approval & sanction letters
+┌────────────────┐
+│  Router Node   │  ← Intent classification only (no RAG)
+│  (classify     │     Routes based on keywords / sticky phrases /
+│   domain)      │     stored domain / AI memory context
+└────┬───────────┘
+     │
+     │  Conditional routing based on query intent
+     │
+     ├──▶ Sales Node ───────────┐
+     ├──▶ Verification Node ────┤
+     ├──▶ Underwriting Node ────┤  Each domain node calls _rag_node()
+     └──▶ Sanction Node ────────┘  which performs domain-specific RAG:
+                                   1. ChromaDB retrieval (k=3 or k=4)
+                                   2. Build prompt with policy context + history
+                                   3. LLM generation via Ollama (gemma3:4b)
+                                   4. Save to session memory
 ```
 
 ### Key Components
