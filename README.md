@@ -26,8 +26,6 @@ LoanBot/
 │   ├── master_agent.py               # ReAct agent orchestrator (Ollama + LangChain)
 │   ├── rag_chromadb.py               # ChromaDB vector store — embed, query, rebuild index
 │   ├── rag_index_builder.py          # Standalone script to build ChromaDB index from documents
-│   ├── rag.py                        # Alternative FAISS-based quick search
-│   ├── rules.py                      # Simple eligibility rule engine
 │   ├── print_chunks.py               # Utility to inspect ChromaDB document chunks
 │   ├── memory_manager.py             # Legacy conversation buffer memory
 │   ├── audio_utils.py                # Speech-to-Text (Vosk) & Text-to-Speech (Coqui TTS)
