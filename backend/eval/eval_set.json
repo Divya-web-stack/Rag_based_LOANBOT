@@ -1,0 +1,42 @@
+[
+  {
+    "query": "What is the interest rate for a personal loan?",
+    "relevant_chunk_ids": ["personal_loan_policy_chunk_1"]
+  },
+  {
+    "query": "What documents are required for a personal loan application?",
+    "relevant_chunk_ids": ["personal_loan_policy_chunk_1", "loan_faq_chunk_2"]
+  },
+  {
+    "query": "What percentage of gold value can I borrow against?",
+    "relevant_chunk_ids": ["gold_loan_chunk_0"]
+  },
+  {
+    "query": "What is the minimum age and salary required for a home loan?",
+    "relevant_chunk_ids": ["home_loan_chunk_0"]
+  },
+  {
+    "query": "What happens if I miss an EMI payment?",
+    "relevant_chunk_ids": ["loan_faq_chunk_0"]
+  },
+  {
+    "query": "Can I foreclose or close my loan early?",
+    "relevant_chunk_ids": ["loan_faq_chunk_0"]
+  },
+  {
+    "query": "What is the processing fee mentioned in the company terms and conditions?",
+    "relevant_chunk_ids": ["company_terms_chunk_0"]
+  },
+  {
+    "query": "Is there a penalty for a bounced cheque?",
+    "relevant_chunk_ids": ["loan_faq_chunk_4"]
+  },
+  {
+    "query": "What is the minimum gold purity accepted for a gold loan?",
+    "relevant_chunk_ids": ["gold_loan_chunk_1"]
+  },
+  {
+    "query": "Are loans available for NRIs?",
+    "relevant_chunk_ids": ["loan_faq_chunk_5"]
+  }
+]
