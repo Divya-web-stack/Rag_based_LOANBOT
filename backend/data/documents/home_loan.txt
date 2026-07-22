@@ -1,8 +1,0 @@
-Home Loan Policy
-----------------
-- Applicants must be 23-65 years old.
-- Minimum salary ₹40,000/month.
-- Loan Tenure: up to 20 years.
-- Interest rate between 8.2% - 9.5%.
-- Co-applicant allowed.
-- Documents required: Identity proof, property papers, income proof.

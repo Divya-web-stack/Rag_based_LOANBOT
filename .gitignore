@@ -20,3 +20,6 @@ venv/
 *.dll
 *.lib
 *.db
+
+
+backend/data/
